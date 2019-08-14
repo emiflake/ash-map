@@ -6,7 +6,7 @@
 /*   By: emiflake <marvin@student.codam.nl>                +#+                */
 /*                                                        +#+                 */
 /*   Created: 2019/08/14 15:42:32 by emiflake            #+#    #+#           */
-/*   Updated: 2019/08/14 20:01:23 by emiflake            ########   odam.nl   */
+/*   Updated: 2019/08/14 21:17:12 by emiflake            ########   odam.nl   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,18 @@ typedef struct	s_bucket
 
 typedef struct	s_hashmap
 {
+	t_hasher	hasher;
 	t_bucket	*buckets;
 	size_t		bucket_count;
 }		t_hashmap;
 
-t_hashmap	*ash_hashmap_new(void);
-t_hashmap	*ash_hashmap_with_size(size_t length);
-t_bucket	*ash_hashmap_get_bucket(t_hashmap *map, t_hasher hasher, char *key);
+t_hashmap	*ash_hashmap_new(t_hasher hasher);
+t_hashmap	*ash_hashmap_with_size(size_t length, t_hasher hasher);
+t_bucket	*ash_hashmap_get_bucket(t_hashmap *map, char *key);
 void		*ash_bucket_get(t_bucket *bucket, char *key);
 void		*ash_bucket_set(t_bucket *bucket, char *key, void *value);
-void		*ash_hashmap_insert(t_hashmap *map, t_hasher hasher, char *key, void *value);
-void		*ash_hashmap_get(t_hashmap *map, t_hasher hasher, char *key);
+void		*ash_hashmap_insert(t_hashmap *map, char *key, void *value);
+void		*ash_hashmap_get(t_hashmap *map, char *key);
 
 uint64_t	ash_hash(const void *bytes, size_t len);
 uint64_t	ash_hash_fnv_64(const void *bytes, size_t len);

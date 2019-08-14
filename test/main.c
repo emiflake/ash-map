@@ -6,7 +6,7 @@
 /*   By: emiflake <marvin@student.codam.nl>                +#+                */
 /*                                                        +#+                 */
 /*   Created: 2019/08/14 15:57:12 by emiflake            #+#    #+#           */
-/*   Updated: 2019/08/14 19:58:58 by emiflake            ########   odam.nl   */
+/*   Updated: 2019/08/14 21:18:13 by emiflake            ########   odam.nl   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,17 @@ int	main(void)
 {
 	t_hashmap	*map;
 
-	map = ash_hashmap_new();
+	map = ash_hashmap_new(ash_hash);
 	assert(map->bucket_count == 1024);
 
-	t_hasher hasher = ash_hash;
-	 test_uniformity(hasher);
+	test_uniformity(ash_hash);
 
 
-	assert(ash_hashmap_insert(map, hasher, "foo", "bar") == NULL);
-	assert(strcmp(ash_hashmap_get(map, hasher, "foo"), "bar") == 0);
-	assert(ash_hashmap_insert(map, hasher, "bar", "foo") == NULL);
-	assert(strcmp(ash_hashmap_get(map, hasher, "bar"), "foo") == 0);
-	assert(strcmp(ash_hashmap_insert(map, hasher, "bar", "baz"), "foo") == 0);
+	assert(ash_hashmap_insert(map, "foo", "bar") == NULL);
+	assert(strcmp(ash_hashmap_get(map, "foo"), "bar") == 0);
+	assert(ash_hashmap_insert(map, "bar", "foo") == NULL);
+	assert(strcmp(ash_hashmap_get(map, "bar"), "foo") == 0);
+	assert(strcmp(ash_hashmap_insert(map, "bar", "baz"), "foo") == 0);
 
 	ash_hashmap_foreach_enum(map, print_node);
 	ash_hashmap_clean(map, my_cleaner);
