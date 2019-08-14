@@ -1,4 +1,4 @@
-# AshMap
+# AshMap ![travis badge](https://travis-ci.com/emiflake/ash-map.svg?branch=master) ![lang](https://img.shields.io/github/languages/top/emiflake/ash-map)
 A C89 HashMap implementation
 
 # Usage
