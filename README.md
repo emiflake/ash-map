@@ -12,14 +12,12 @@ void	print_node(size_t bucket_n, size_t node_n, t_bucket_node *node)
 int main(void) {
 	t_hashmap	*map;
 
-	map = ash_hashmap_new();
+	map = ash_hashmap_new(ash_hash);
 
-	t_hasher hasher = ash_hash;
+	ash_hashmap_insert(map, "foo", "bar"));
+	ash_hashmap_insert(map, "bar", "foo"));
 
-	ash_hashmap_insert(map, hasher, "foo", "bar"));
-	ash_hashmap_insert(map, hasher, "bar", "foo"));
-
-	if (ash_hashmap_get(map, hasher, "foo"))
+	if (ash_hashmap_get(map, "foo"))
 		printf("Silly foo!\n");
 
 	ash_hashmap_foreach_enum(map, print_node);
