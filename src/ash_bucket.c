@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                             ::::::::       */
-/*   ash_bucket.c                                            :+:    :+:       */
-/*                                                          +:+               */
-/*   By: emiflake <marvin@student.codam.nl>                +#+                */
-/*                                                        +#+                 */
-/*   Created: 2019/08/14 15:53:21 by emiflake            #+#    #+#           */
-/*   Updated: 2019/08/14 18:22:42 by emiflake            ########   odam.nl   */
+/*                                                        ::::::::            */
+/*   ash_bucket.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: emiflake <marvin@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/08/14 15:53:21 by emiflake       #+#    #+#                */
+/*   Updated: 2019/10/31 15:54:57 by nmartins      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../inc/ashmap.h"
 #include "../inc/ash_common.h"
 
-void	*ash_bucket_get(t_bucket *bucket, char *key)
+void			*ash_bucket_get(t_bucket *bucket, char *key)
 {
 	t_bucket_node	*walker;
 
@@ -36,6 +36,7 @@ void	*ash_bucket_get(t_bucket *bucket, char *key)
 t_bucket_node	*ash_create_node(char *key, void *value)
 {
 	t_bucket_node	*new_node;
+
 	new_node = (t_bucket_node*)malloc(sizeof(t_bucket_node));
 	new_node->next = NULL;
 	new_node->key = key;
@@ -45,7 +46,8 @@ t_bucket_node	*ash_create_node(char *key, void *value)
 	return (new_node);
 }
 
-void	*ash_bucket_set_node(t_bucket_node *node, char *key, void *value)
+void			*ash_bucket_set_node(
+	t_bucket_node *node, char *key, void *value)
 {
 	void	*tmp;
 
@@ -66,7 +68,7 @@ void	*ash_bucket_set_node(t_bucket_node *node, char *key, void *value)
 	}
 }
 
-void	*ash_bucket_set(t_bucket *bucket, char *key, void *value)
+void			*ash_bucket_set(t_bucket *bucket, char *key, void *value)
 {
 	if (bucket->node_count == 0)
 	{

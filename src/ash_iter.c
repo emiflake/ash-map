@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                             ::::::::       */
-/*   ash_iter.c                                              :+:    :+:       */
-/*                                                          +:+               */
-/*   By: emiflake <marvin@student.codam.nl>                +#+                */
-/*                                                        +#+                 */
-/*   Created: 2019/08/14 18:27:24 by emiflake            #+#    #+#           */
-/*   Updated: 2019/08/14 18:58:06 by emiflake            ########   odam.nl   */
+/*                                                        ::::::::            */
+/*   ash_iter.c                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: emiflake <marvin@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/08/14 18:27:24 by emiflake       #+#    #+#                */
+/*   Updated: 2019/10/31 15:52:45 by nmartins      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "../inc/ash_common.h"
 
 void	ash_hashmap_foreach_share(t_hashmap *map,
-	void(*iter_f)(size_t, size_t, t_bucket_node*, void *), void *shared)
+	void (*iter_f)(size_t, size_t, t_bucket_node*, void *), void *shared)
 {
 	t_bucket_node	*bucket_node_walker;
-	t_bucket	*bucket_walker;
-	size_t		i;
-	size_t		j;
+	t_bucket		*bucket_walker;
+	size_t			i;
+	size_t			j;
 
 	i = 0;
 	while (i < map->bucket_count)
@@ -33,18 +33,17 @@ void	ash_hashmap_foreach_share(t_hashmap *map,
 			bucket_node_walker = bucket_node_walker->next;
 			j++;
 		}
-
 		i += 1;
 	}
 }
 
 void	ash_hashmap_foreach_enum(t_hashmap *map,
-	void(*iter_f)(size_t, size_t, t_bucket_node*))
+	void (*iter_f)(size_t, size_t, t_bucket_node*))
 {
 	t_bucket_node	*bucket_node_walker;
-	t_bucket	*bucket_walker;
-	size_t		i;
-	size_t		j;
+	t_bucket		*bucket_walker;
+	size_t			i;
+	size_t			j;
 
 	i = 0;
 	while (i < map->bucket_count)
@@ -58,17 +57,16 @@ void	ash_hashmap_foreach_enum(t_hashmap *map,
 			bucket_node_walker = bucket_node_walker->next;
 			j++;
 		}
-
 		i += 1;
 	}
 }
 
 void	ash_hashmap_foreach(t_hashmap *map,
-	void(*iter_f)(t_bucket_node*))
+	void (*iter_f)(t_bucket_node*))
 {
 	t_bucket_node	*bucket_node_walker;
-	t_bucket	*bucket_walker;
-	size_t		i;
+	t_bucket		*bucket_walker;
+	size_t			i;
 
 	i = 0;
 	while (i < map->bucket_count)
@@ -83,5 +81,3 @@ void	ash_hashmap_foreach(t_hashmap *map,
 		i++;
 	}
 }
-
-

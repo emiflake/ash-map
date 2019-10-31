@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                             ::::::::       */
-/*   ash_hasher.c                                            :+:    :+:       */
-/*                                                          +:+               */
-/*   By: emiflake <marvin@student.codam.nl>                +#+                */
-/*                                                        +#+                 */
-/*   Created: 2019/08/14 16:37:30 by emiflake            #+#    #+#           */
-/*   Updated: 2019/08/14 16:46:30 by emiflake            ########   odam.nl   */
+/*                                                        ::::::::            */
+/*   ash_hasher.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: emiflake <marvin@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/08/14 16:37:30 by emiflake       #+#    #+#                */
+/*   Updated: 2019/10/31 15:53:58 by nmartins      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 uint64_t	ash_hash_fnv_64(const void *bytes, size_t len)
 {
-	unsigned char*	p;
-	uint64_t	h;
-	size_t		i;
+	unsigned char	*p;
+	uint64_t		h;
+	size_t			i;
 
 	i = 0;
 	h = 14695981039346656037U;

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                             ::::::::       */
-/*   ash_clean.c                                             :+:    :+:       */
-/*                                                          +:+               */
-/*   By: emiflake <marvin@student.codam.nl>                +#+                */
-/*                                                        +#+                 */
-/*   Created: 2019/08/14 18:53:08 by emiflake            #+#    #+#           */
-/*   Updated: 2019/08/14 19:58:25 by emiflake            ########   odam.nl   */
+/*                                                        ::::::::            */
+/*   ash_clean.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: emiflake <marvin@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/08/14 18:53:08 by emiflake       #+#    #+#                */
+/*   Updated: 2019/10/31 15:54:27 by nmartins      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ashmap.h"
 #include "../inc/ash_common.h"
 
-static void	ash_hashmap_clean_buckets(t_bucket *bucket, void(*clean_f)(void*))
+static void	ash_hashmap_clean_buckets(t_bucket *bucket, void (*clean_f)(void*))
 {
 	t_bucket_node	*curr_node;
 	t_bucket_node	*next_node;
@@ -34,7 +34,7 @@ static void	ash_hashmap_clean_buckets(t_bucket *bucket, void(*clean_f)(void*))
 
 void		ash_hashmap_clean(
 	t_hashmap *map,
-	void(*clean_f)(void*))
+	void (*clean_f)(void*))
 {
 	t_bucket	*bucket_walker;
 	size_t		i;

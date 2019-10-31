@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                             ::::::::       */
-/*   ash_hashmap.c                                           :+:    :+:       */
-/*                                                          +:+               */
-/*   By: emiflake <marvin@student.codam.nl>                +#+                */
-/*                                                        +#+                 */
-/*   Created: 2019/08/14 15:11:22 by emiflake            #+#    #+#           */
-/*   Updated: 2019/08/14 21:15:54 by emiflake            ########   odam.nl   */
+/*                                                        ::::::::            */
+/*   ash_hashmap.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: emiflake <marvin@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/08/14 15:11:22 by emiflake       #+#    #+#                */
+/*   Updated: 2019/10/31 15:53:47 by nmartins      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ t_hashmap	*ash_hashmap_with_size(size_t length, t_hasher hasher)
 
 t_bucket	*ash_hashmap_get_bucket(t_hashmap *map, char *key)
 {
-	const uint64_t	bucket_idx = map->hasher(key, ash_strlen(key)) % map->bucket_count;
+	uint64_t	bucket_idx;
 
+	bucket_idx = map->hasher(key, ash_strlen(key)) % map->bucket_count;
 	return (&map->buckets[bucket_idx]);
 }
 

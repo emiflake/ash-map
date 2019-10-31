@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                             ::::::::       */
-/*   ash_common.c                                            :+:    :+:       */
-/*                                                          +:+               */
-/*   By: emiflake <marvin@student.codam.nl>                +#+                */
-/*                                                        +#+                 */
-/*   Created: 2019/08/14 16:32:23 by emiflake            #+#    #+#           */
-/*   Updated: 2019/08/14 18:05:38 by emiflake            ########   odam.nl   */
+/*                                                        ::::::::            */
+/*   ash_common.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: emiflake <marvin@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/08/14 16:32:23 by emiflake       #+#    #+#                */
+/*   Updated: 2019/10/31 15:54:13 by nmartins      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "../inc/ash_common.h"
 
-size_t	ash_strlen(const char *string)
+size_t		ash_strlen(const char *string)
 {
 	size_t length;
 
@@ -24,7 +24,7 @@ size_t	ash_strlen(const char *string)
 	return (length);
 }
 
-int	ash_strcmp(const char *s1, const char *s2)
+int			ash_strcmp(const char *s1, const char *s2)
 {
 	int				i;
 	unsigned char	*us1;
